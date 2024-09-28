@@ -1,17 +1,17 @@
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 import { lazy, Suspense } from 'react';
-import { Header } from './components/Header/Header';
+import { Header } from './components';
 
-const Country = lazy(() =>
-  import('./pages/Country').then(module => ({ default: module.Country })),
-);
 const Home = lazy(() =>
   import('./pages/Home').then(module => ({ default: module.Home })),
 );
 const SearchCountry = lazy(() =>
-  import('./pages/SearchCountry').then(module => ({
+  import('./pages/SearchCountry/').then(module => ({
     default: module.SearchCountry,
   })),
+);
+const Country = lazy(() =>
+  import('./pages/Country').then(module => ({ default: module.Country })),
 );
 
 export const App = () => {

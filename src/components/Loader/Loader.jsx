@@ -1,3 +1,10 @@
+import { HashLoader } from 'react-spinners';
+import s from './Loader.module.css';
+
 export const Loader = () => {
-  return <h2>Loader</h2>;
+  return (
+    <div className={s.backdrop}>
+      <HashLoader />
+    </div>
+  );
 };

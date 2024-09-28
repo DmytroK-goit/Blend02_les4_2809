@@ -1,3 +1,5 @@
-export const GoBackBtn = () => {
-  return <h3>GoBackBtn</h3>;
+import { Link } from 'react-router-dom';
+
+export const GoBackBtn = ({ backRef }) => {
+  return <Link to={backRef}>Go back</Link>;
 };

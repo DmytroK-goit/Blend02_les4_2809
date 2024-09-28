@@ -1,29 +1,28 @@
-import { Container, Heading, Section } from 'components';
+import { Container, CountryList, Heading, Section } from 'components';
 import { useEffect, useState } from 'react';
-import { getCountries } from '../service/countryApi';
-import { CountryList } from '../components/CountryList/CountryList';
+import { getCountries } from 'service/countryApi';
 
 export const Home = () => {
   const [countries, setCountries] = useState([]);
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const searchCountries = async () => {
+    const getData = async () => {
       try {
         const data = await getCountries();
-        setCountries(data);
         console.log(data);
+        setCountries(data);
       } catch (error) {
         setError(error.message);
-        console.log(error);
       }
     };
-    searchCountries();
+    getData();
   }, []);
+
   return (
     <Section>
       <Container>
-        {error && <Heading title={error} bottom />}
+        <Heading title={error ? error : 'Home'} bottom />
         <CountryList countries={countries} />
       </Container>
     </Section>

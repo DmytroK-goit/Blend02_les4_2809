@@ -6,6 +6,7 @@ axios.defaults.baseURL = 'https://restcountries.com/v3.1';
 export const getCountries = async () => {
   const { data } = await axios.get('/region/europe');
   const countries = transformCountriesData(data);
+
   return countries;
 };
 
